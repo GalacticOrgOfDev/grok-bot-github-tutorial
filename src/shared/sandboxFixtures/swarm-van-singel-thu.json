@@ -1,0 +1,35 @@
+{
+  "fixtureId": "swarm-van-singel-thu",
+  "moduleId": "swarm",
+  "composes": [
+    "spring-week-hudsonville",
+    "routine-pack-spring-week",
+    "bot-team-van-singel",
+    "skills-pack-field"
+  ],
+  "outcome": "Thursday Van Singel install starts with a clear Wednesday calendar and a known packet status; homeowner signature follow-up drafted.",
+  "successChecks": [
+    "Wed conflict addressed (confirmed move or explicit accept-risk)",
+    "Packet audit run — contract missing reported",
+    "Homeowner draft exists — not auto-sent",
+    "Thu morning brief still scheduled",
+    "Conflict guard paused or still justified"
+  ],
+  "channel": "Van Singel Install",
+  "rescheduleOptions": [
+    {"id": "A", "move": "Mulch delivery — Van Singel", "start": "12:30", "end": "14:30"},
+    {"id": "B", "move": "Consult — Jamestown patio", "start": "13:00", "end": "14:30"}
+  ],
+  "packetGap": "signed-contract.pdf",
+  "homeownerDraftShape": "Short ask to e-sign/return contract; no other clients named",
+  "orchestrationStates": [
+    "S0 Kickoff posted",
+    "S1 Packets audit returned",
+    "S2 Scheduler proposals returned",
+    "S3 Human chose A|B|accept-risk",
+    "S4 Calendar write confirmed or skipped",
+    "S5 Homeowner draft saved (unsent)",
+    "S6 Retro checks scored",
+    "S7 Teardown actions applied"
+  ]
+}
