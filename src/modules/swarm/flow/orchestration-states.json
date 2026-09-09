@@ -1,0 +1,19 @@
+{
+  "moduleId": "swarm",
+  "fixtureId": "swarm-van-singel-thu",
+  "states": [
+    { "id": "S0", "label": "Kickoff posted", "next": ["S1"] },
+    { "id": "S1", "label": "Packets audit returned", "next": ["S2"] },
+    { "id": "S2", "label": "Scheduler proposals returned", "next": ["S3"] },
+    { "id": "S3", "label": "Human chose A|B|accept-risk", "next": ["S4"], "requiresHuman": true },
+    { "id": "S4", "label": "Calendar write confirmed or skipped", "next": ["S5"], "requiresConfirm": true },
+    { "id": "S5", "label": "Homeowner draft saved (unsent)", "next": ["S6"] },
+    { "id": "S6", "label": "Retro checks scored", "next": ["S7"] },
+    { "id": "S7", "label": "Teardown actions applied", "next": [] }
+  ],
+  "ux": {
+    "confirmSheet": "Confirm write",
+    "dashboard": "swarm checks toggles",
+    "pauseButtons": "big Pause routine buttons"
+  }
+}
