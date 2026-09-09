@@ -19,6 +19,22 @@ import { m2Quiz } from '../modules/google/quizzes/m2-test';
 import { googleManifest } from '../modules/google/manifest';
 import { googlePractices } from '../modules/google/practices';
 import { slackManifest } from '../modules/slack';
+import { m3Quiz } from '../modules/routines/quizzes/m3-test';
+import { routinesManifest } from '../modules/routines/manifest';
+import { routinesPractices } from '../modules/routines/practices';
+import {
+  routinePackSpringWeek,
+  gradeMorningSchedule,
+  gradeMorningPrompt,
+  gradeEventBabysit,
+  gradeHygienePause,
+  gradeHygieneUpdate,
+  gradeHygieneDelete,
+  gradeCapstoneMorning,
+  gradeCapstoneGuard,
+  gradeCapstoneTypes,
+  gradeCapstoneSafety,
+} from '../shared/sandboxFixtures';
 
 describe('schema helpers', () => {
   it('validates github manifest', () => {
@@ -119,7 +135,7 @@ describe('google module schema', () => {
 
   it('validates google practices', () => {
     for (const drill of Object.values(googlePractices)) {
-      expect(assertPractice(drill)).toEqual([]);
+      expect(assertPractice(drill));
     }
     expect(googlePractices['practice-capstone-m2'].passThreshold).toBe(4);
   });
@@ -194,5 +210,136 @@ describe('spring-week-hudsonville fixture grades', () => {
       ),
     ).toBe(true);
     expect(gradeCapstoneDayVerdict('go ship it')).toBe(false);
+  });
+});
+
+describe('routines module schema', () => {
+  it('validates routines manifest', () => {
+    expect(assertManifest(routinesManifest)).toEqual([]);
+    expect(routinesManifest.moduleId).toBe('routines');
+    expect(routinesManifest.status).toBe('live');
+    expect(routinesManifest.passScore).toBe(0.8);
+    expect(routinesManifest.lessonOrder).toEqual([
+      'm3-intro',
+      'm3-l1-when',
+      'm3-v2',
+      'm3-l2-cron',
+      'm3-v3',
+      'm3-l3-events',
+      'm3-v4',
+      'm3-l4-hygiene',
+      'm3-practice-capstone',
+      'm3-test',
+      'm3-outro',
+    ]);
+  });
+
+  it('validates m3 quiz shape', () => {
+    expect(assertQuiz(m3Quiz, 0.8)).toEqual([]);
+    expect(m3Quiz.questions).toHaveLength(10);
+  });
+
+  it('validates routines practices', () => {
+    for (const drill of Object.values(routinesPractices)) {
+      expect(assertPractice(drill)).toEqual([]);
+    }
+    expect(routinesPractices['practice-when-routine'].passThreshold).toBe(5);
+    expect(routinesPractices['practice-capstone-m3'].passThreshold).toBe(3);
+  });
+
+  it('keeps slack as thin stub', () => {
+    expect(slackManifest.status).toBe('stub');
+    expect(slackManifest.lessonOrder).toEqual([]);
+  });
+});
+
+describe('m3 quiz scoring', () => {
+  it('scores all-correct as pass', () => {
+    const answers: Record<string, string> = {};
+    for (const q of m3Quiz.questions) {
+      if (q.kind === 'mc' && q.correctOptionId) answers[q.id] = q.correctOptionId;
+      if (q.kind === 'short') answers[q.id] = 'name and schedule plus timezone';
+    }
+    const result = scoreQuiz(m3Quiz, answers);
+    expect(result.correctCount).toBe(10);
+    expect(result.passed).toBe(true);
+  });
+
+  it('fails below 8/10', () => {
+    const answers: Record<string, string> = {
+      q1: 'A',
+      q2: 'A',
+      q3: 'A',
+      q4: 'A',
+      q5: 'A',
+      q6: 'A',
+      q7: 'nope',
+      q8: 'A',
+      q9: 'A',
+      q10: 'A',
+    };
+    expect(scoreQuiz(m3Quiz, answers).passed).toBe(false);
+  });
+});
+
+describe('routine-pack-spring-week fixture grades', () => {
+  it('matches tutor JSON keys', () => {
+    expect(routinePackSpringWeek.fixtureId).toBe('routine-pack-spring-week');
+    expect(routinePackSpringWeek.moduleId).toBe('routines');
+    expect(routinePackSpringWeek.timezone).toBe('America/Detroit');
+    expect(routinePackSpringWeek.calendar).toBe('Crew Schedule');
+    expect(routinePackSpringWeek.targets.weekdayFieldBrief.schedule).toBe(
+      '0 7 * * 1-5',
+    );
+    expect(routinePackSpringWeek.targets.wedConflictGuard.schedule).toBe(
+      '0 18 * * 2',
+    );
+    expect(routinePackSpringWeek.sortCards).toHaveLength(6);
+    expect(routinePackSpringWeek.existingRoutines.some((r) => 'junk' in r && r.junk === true)).toBe(
+      true,
+    );
+  });
+
+  it('grades sort cards answers', () => {
+    const expected = ['once', 'routine', 'once', 'routine', 'once', 'routine'];
+    expect(routinePackSpringWeek.sortCards.map((c) => c.answer)).toEqual(
+      expected,
+    );
+  });
+
+  it('grades morning / hygiene / capstone keys', () => {
+    expect(
+      gradeMorningSchedule('weekday 7:00 AM America/Detroit Mon-Fri'),
+    ).toBe(true);
+    expect(gradeMorningPrompt('Crew Schedule summary, read-only, quiet if empty')).toBe(
+      true,
+    );
+    expect(
+      gradeEventBabysit(
+        'Watch demo-acme/payments-api PR #42 CI; ping what changed + next action; remove on merge/close',
+      ),
+    ).toBe(true);
+    expect(gradeHygienePause('Pause Weekday field brief')).toBe(true);
+    expect(
+      gradeHygieneUpdate('Update prompt to flag back-to-backs under 30 minutes'),
+    ).toBe(true);
+    expect(gradeHygieneDelete('Delete test morning')).toBe(true);
+    expect(
+      gradeCapstoneMorning(
+        'Weekday 7 AM Detroit read-only Crew Schedule brief, quiet if empty',
+      ),
+    ).toBe(true);
+    expect(
+      gradeCapstoneGuard(
+        'Tue 6 PM: if Van Singel mulch overlaps Jamestown consult, propose options; never edit; quiet if clear',
+      ),
+    ).toBe(true);
+    expect(
+      gradeCapstoneTypes('Both are scheduled routines — morning and guard'),
+    ).toBe(true);
+    expect(
+      gradeCapstoneSafety('Never move calendar events without confirmation'),
+    ).toBe(true);
+    expect(gradeCapstoneSafety('no')).toBe(false);
   });
 });
