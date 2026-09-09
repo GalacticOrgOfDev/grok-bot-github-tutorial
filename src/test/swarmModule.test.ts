@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { scoreQuiz } from '../shared/quizScoring';
 import { assertManifest, assertQuiz, assertPractice } from '../shared/schema';
 import { slackManifest } from '../modules/slack';
-import { m6Quiz } from '../modules/swarm/quizzes/m6-test';
+import { m7Quiz } from '../modules/swarm/quizzes/m7-test';
 import { swarmManifest } from '../modules/swarm/manifest';
 import { swarmPractices } from '../modules/swarm/practices';
 import { allManifests, getModule } from '../modules';
@@ -27,23 +27,23 @@ describe('swarm module schema', () => {
     expect(swarmManifest.status).toBe('live');
     expect(swarmManifest.passScore).toBe(0.8);
     expect(swarmManifest.lessonOrder).toEqual([
-      'm6-intro',
-      'm6-l1-outcome',
-      'm6-v2',
-      'm6-l2-assemble',
-      'm6-v3',
-      'm6-l3-run',
-      'm6-v4',
-      'm6-l4-teardown',
-      'm6-practice-capstone',
-      'm6-test',
-      'm6-outro',
+      'm7-intro',
+      'm7-l1-outcome',
+      'm7-v2',
+      'm7-l2-assemble',
+      'm7-v3',
+      'm7-l3-run',
+      'm7-v4',
+      'm7-l4-teardown',
+      'm7-practice-capstone',
+      'm7-test',
+      'm7-outro',
     ]);
   });
 
-  it('validates m6 quiz shape', () => {
-    expect(assertQuiz(m6Quiz, 0.8)).toEqual([]);
-    expect(m6Quiz.questions).toHaveLength(10);
+  it('validates m7 quiz shape', () => {
+    expect(assertQuiz(m7Quiz, 0.8)).toEqual([]);
+    expect(m7Quiz.questions).toHaveLength(10);
   });
 
   it('validates swarm practices', () => {
@@ -52,40 +52,48 @@ describe('swarm module schema', () => {
     }
     expect(swarmPractices['practice-outcome'].passThreshold).toBe(2);
     expect(swarmPractices['practice-run-loop'].passThreshold).toBe(3);
-    expect(swarmPractices['practice-capstone-m6'].passThreshold).toBe(4);
+    expect(swarmPractices['practice-capstone-m7'].passThreshold).toBe(4);
   });
 
   it('lists swarm on home manifests and getModule', () => {
     expect(allManifests.some((m) => m.moduleId === 'swarm')).toBe(true);
-    expect(allManifests.findIndex((m) => m.moduleId === 'swarm')).toBeLessThan(
-      allManifests.findIndex((m) => m.moduleId === 'slack'),
-    );
+    expect(allManifests.map((m) => m.moduleId)).toEqual([
+      'github',
+      'google',
+      'slack',
+      'routines',
+      'teams',
+      'skills',
+      'swarm',
+    ]);
     expect(getModule('swarm')?.manifest.moduleId).toBe('swarm');
     expect(getModule('swarm')?.lessonMeta).toHaveLength(11);
   });
 
-  it('keeps slack as thin stub', () => {
-    expect(slackManifest.status).toBe('stub');
-    expect(slackManifest.lessonOrder).toEqual([]);
+  it('lists slack as live Solid before routines in nav', () => {
+    expect(slackManifest.status).toBe('live');
+    const ids = allManifests.map((m) => m.moduleId);
+    expect(ids.indexOf('google')).toBeLessThan(ids.indexOf('slack'));
+    expect(ids.indexOf('slack')).toBeLessThan(ids.indexOf('routines'));
   });
 
   it('keeps prior modules live', () => {
-    for (const id of ['github', 'google', 'routines', 'teams', 'skills', 'swarm']) {
+    for (const id of ['github', 'google', 'slack', 'routines', 'teams', 'skills', 'swarm']) {
       expect(getModule(id)?.manifest.status).toBe('live');
     }
   });
 });
 
-describe('m6 quiz scoring', () => {
+describe('m7 quiz scoring', () => {
   it('scores all-correct as pass', () => {
     const answers: Record<string, string> = {};
-    for (const q of m6Quiz.questions) {
+    for (const q of m7Quiz.questions) {
       if (q.kind === 'mc' && q.correctOptionId) answers[q.id] = q.correctOptionId;
       if (q.kind === 'short') {
         answers[q.id] = 'kickoff assign gather decide act retrospect';
       }
     }
-    const result = scoreQuiz(m6Quiz, answers);
+    const result = scoreQuiz(m7Quiz, answers);
     expect(result.correctCount).toBe(10);
     expect(result.passed).toBe(true);
   });
@@ -103,7 +111,7 @@ describe('m6 quiz scoring', () => {
       q9: 'A',
       q10: 'A',
     };
-    expect(scoreQuiz(m6Quiz, answers).passed).toBe(false);
+    expect(scoreQuiz(m7Quiz, answers).passed).toBe(false);
   });
 });
 

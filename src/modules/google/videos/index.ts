@@ -29,9 +29,9 @@ export const googleVideos: Record<string, VideoLesson> = {
         id: 'v0-3',
         title: 'Module 2 of Grok Bot + *',
         narration:
-          'Module 2 of Grok Bot plus star. GitHub done; Google now; Slack stub later for others.',
+          'Module 2 of Grok Bot plus star. GitHub done; Google now; Slack next for specialists.',
         durationSec: 15,
-        bullets: ['GitHub ✓', 'Google now', 'Slack stub for others'],
+        bullets: ['GitHub ✓', 'Google now', 'Slack next (optional)'],
       },
       {
         id: 'v0-4',
@@ -197,7 +197,7 @@ export const googleVideos: Record<string, VideoLesson> = {
   },
   'm2-outro': {
     id: 'm2-outro',
-    title: "What's next (+ Slack stub for others)",
+    title: "What's next (Slack + Routines)",
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
     estMinutes: 1,
@@ -213,11 +213,11 @@ export const googleVideos: Record<string, VideoLesson> = {
       },
       {
         id: 'vo-2',
-        title: 'Slack stub',
+        title: 'Next modules',
         narration:
-          'Thin Slack module later for specialists who live in Slack — not required for everyone.',
+          'Module 3 Slack is live for specialists who live there — not required for everyone. Then Routines.',
         durationSec: 15,
-        bullets: ['Slack = stub for others', 'Not required for Calendar/Drive'],
+        bullets: ['M3 Slack (optional)', 'Then Routines'],
       },
       {
         id: 'vo-3',

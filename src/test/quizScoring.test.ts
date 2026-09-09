@@ -19,7 +19,7 @@ import { m2Quiz } from '../modules/google/quizzes/m2-test';
 import { googleManifest } from '../modules/google/manifest';
 import { googlePractices } from '../modules/google/practices';
 import { slackManifest } from '../modules/slack';
-import { m3Quiz } from '../modules/routines/quizzes/m3-test';
+import { m4Quiz } from '../modules/routines/quizzes/m4-test';
 import { routinesManifest } from '../modules/routines/manifest';
 import { routinesPractices } from '../modules/routines/practices';
 import {
@@ -140,9 +140,11 @@ describe('google module schema', () => {
     expect(googlePractices['practice-capstone-m2'].passThreshold).toBe(4);
   });
 
-  it('keeps slack as thin stub', () => {
-    expect(slackManifest.status).toBe('stub');
-    expect(slackManifest.lessonOrder).toEqual([]);
+  it('lists slack as live Solid between google and routines', () => {
+    expect(slackManifest.status).toBe('live');
+    expect(slackManifest.depth).toBe('solid');
+    expect(slackManifest.connectors).toEqual(['slack']);
+    expect(slackManifest.lessonOrder[0]).toBe('m3-intro');
   });
 });
 
@@ -220,23 +222,23 @@ describe('routines module schema', () => {
     expect(routinesManifest.status).toBe('live');
     expect(routinesManifest.passScore).toBe(0.8);
     expect(routinesManifest.lessonOrder).toEqual([
-      'm3-intro',
-      'm3-l1-when',
-      'm3-v2',
-      'm3-l2-cron',
-      'm3-v3',
-      'm3-l3-events',
-      'm3-v4',
-      'm3-l4-hygiene',
-      'm3-practice-capstone',
-      'm3-test',
-      'm3-outro',
+      'm4-intro',
+      'm4-l1-when',
+      'm4-v2',
+      'm4-l2-cron',
+      'm4-v3',
+      'm4-l3-events',
+      'm4-v4',
+      'm4-l4-hygiene',
+      'm4-practice-capstone',
+      'm4-test',
+      'm4-outro',
     ]);
   });
 
-  it('validates m3 quiz shape', () => {
-    expect(assertQuiz(m3Quiz, 0.8)).toEqual([]);
-    expect(m3Quiz.questions).toHaveLength(10);
+  it('validates m4 quiz shape', () => {
+    expect(assertQuiz(m4Quiz, 0.8)).toEqual([]);
+    expect(m4Quiz.questions).toHaveLength(10);
   });
 
   it('validates routines practices', () => {
@@ -244,23 +246,23 @@ describe('routines module schema', () => {
       expect(assertPractice(drill)).toEqual([]);
     }
     expect(routinesPractices['practice-when-routine'].passThreshold).toBe(5);
-    expect(routinesPractices['practice-capstone-m3'].passThreshold).toBe(3);
+    expect(routinesPractices['practice-capstone-m4'].passThreshold).toBe(3);
   });
 
-  it('keeps slack as thin stub', () => {
-    expect(slackManifest.status).toBe('stub');
-    expect(slackManifest.lessonOrder).toEqual([]);
+  it('lists slack live with m3 lesson ids', () => {
+    expect(slackManifest.status).toBe('live');
+    expect(slackManifest.lessonOrder).toContain('m3-test');
   });
 });
 
-describe('m3 quiz scoring', () => {
+describe('m4 quiz scoring', () => {
   it('scores all-correct as pass', () => {
     const answers: Record<string, string> = {};
-    for (const q of m3Quiz.questions) {
+    for (const q of m4Quiz.questions) {
       if (q.kind === 'mc' && q.correctOptionId) answers[q.id] = q.correctOptionId;
       if (q.kind === 'short') answers[q.id] = 'name and schedule plus timezone';
     }
-    const result = scoreQuiz(m3Quiz, answers);
+    const result = scoreQuiz(m4Quiz, answers);
     expect(result.correctCount).toBe(10);
     expect(result.passed).toBe(true);
   });
@@ -278,7 +280,7 @@ describe('m3 quiz scoring', () => {
       q9: 'A',
       q10: 'A',
     };
-    expect(scoreQuiz(m3Quiz, answers).passed).toBe(false);
+    expect(scoreQuiz(m4Quiz, answers).passed).toBe(false);
   });
 });
 

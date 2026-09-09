@@ -1,9 +1,9 @@
 import type { Quiz } from '../../types';
 
 /** 10 questions · pass >= 8/10 (passScore 0.8) */
-export const m6Quiz: Quiz = {
-  id: 'm6-test',
-  title: 'Module 6 quiz',
+export const m7Quiz: Quiz = {
+  id: 'm7-test',
+  title: 'Module 7 quiz',
   passScore: 0.8,
   questions: [
     {
@@ -97,12 +97,12 @@ export const m6Quiz: Quiz = {
       stem: 'Slack is required for swarms…',
       options: [
         { id: 'A', text: 'True — swarms only work in Slack' },
-        { id: 'B', text: 'False — Grok channels; Slack stub for others' },
+        { id: 'B', text: 'False — Grok channels; Slack connector optional' },
         { id: 'C', text: 'True — must webhook first' },
         { id: 'D', text: 'True — otherwise teardown fails' },
       ],
       correctOptionId: 'B',
-      explanation: 'False — Grok channels; Slack stays stub.',
+      explanation: 'False — Grok channels; Slack is optional for this swarm.',
     },
     {
       id: 'q9',

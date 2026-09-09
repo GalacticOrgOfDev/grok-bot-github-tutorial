@@ -71,3 +71,16 @@ export {
   gradeCapstoneTeardown,
 } from './swarmVanSingelThu';
 export type { SwarmVanSingelThu } from './swarmVanSingelThu';
+
+export {
+  slackCrewOps,
+  gradeSlackConnect,
+  gradeSlackOpenAsk,
+  gradeSlackDraft,
+  gradeSlackRoutine,
+  gradeSlackCapstoneSummary,
+  gradeSlackCapstoneDraft,
+  gradeSlackCapstoneRoutine,
+  gradeSlackCapstoneNever,
+} from './slackCrewOps';
+export type { SlackCrewOps } from './slackCrewOps';

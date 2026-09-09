@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { scoreQuiz } from '../shared/quizScoring';
 import { assertManifest, assertQuiz, assertPractice } from '../shared/schema';
 import { slackManifest } from '../modules/slack';
-import { m5Quiz } from '../modules/skills/quizzes/m5-test';
+import { m6Quiz } from '../modules/skills/quizzes/m6-test';
 import { skillsManifest } from '../modules/skills/manifest';
 import { skillsPractices } from '../modules/skills/practices';
 import { allManifests, getModule } from '../modules';
@@ -24,23 +24,23 @@ describe('skills module schema', () => {
     expect(skillsManifest.status).toBe('live');
     expect(skillsManifest.passScore).toBe(0.8);
     expect(skillsManifest.lessonOrder).toEqual([
-      'm5-intro',
-      'm5-l1-sort',
-      'm5-v2',
-      'm5-l2-author',
-      'm5-v3',
-      'm5-l3-wire',
-      'm5-v4',
-      'm5-l4-harden',
-      'm5-practice-capstone',
-      'm5-test',
-      'm5-outro',
+      'm6-intro',
+      'm6-l1-sort',
+      'm6-v2',
+      'm6-l2-author',
+      'm6-v3',
+      'm6-l3-wire',
+      'm6-v4',
+      'm6-l4-harden',
+      'm6-practice-capstone',
+      'm6-test',
+      'm6-outro',
     ]);
   });
 
-  it('validates m5 quiz shape', () => {
-    expect(assertQuiz(m5Quiz, 0.8)).toEqual([]);
-    expect(m5Quiz.questions).toHaveLength(10);
+  it('validates m6 quiz shape', () => {
+    expect(assertQuiz(m6Quiz, 0.8)).toEqual([]);
+    expect(m6Quiz.questions).toHaveLength(10);
   });
 
   it('validates skills practices', () => {
@@ -49,7 +49,7 @@ describe('skills module schema', () => {
     }
     expect(skillsPractices['practice-skill-sort'].passThreshold).toBe(5);
     expect(skillsPractices['practice-harden'].passThreshold).toBe(3);
-    expect(skillsPractices['practice-capstone-m5'].passThreshold).toBe(3);
+    expect(skillsPractices['practice-capstone-m6'].passThreshold).toBe(3);
   });
 
   it('lists skills on home manifests and getModule', () => {
@@ -58,20 +58,20 @@ describe('skills module schema', () => {
     expect(getModule('skills')?.lessonMeta).toHaveLength(11);
   });
 
-  it('keeps slack as thin stub', () => {
-    expect(slackManifest.status).toBe('stub');
-    expect(slackManifest.lessonOrder).toEqual([]);
+  it('lists slack as live Solid module', () => {
+    expect(slackManifest.status).toBe('live');
+    expect(slackManifest.passScore).toBe(0.8);
   });
 });
 
-describe('m5 quiz scoring', () => {
+describe('m6 quiz scoring', () => {
   it('scores all-correct as pass', () => {
     const answers: Record<string, string> = {};
-    for (const q of m5Quiz.questions) {
+    for (const q of m6Quiz.questions) {
       if (q.kind === 'mc' && q.correctOptionId) answers[q.id] = q.correctOptionId;
       if (q.kind === 'short') answers[q.id] = 'description and body when-to-use';
     }
-    const result = scoreQuiz(m5Quiz, answers);
+    const result = scoreQuiz(m6Quiz, answers);
     expect(result.correctCount).toBe(10);
     expect(result.passed).toBe(true);
   });
@@ -89,7 +89,7 @@ describe('m5 quiz scoring', () => {
       q9: 'A',
       q10: 'A',
     };
-    expect(scoreQuiz(m5Quiz, answers).passed).toBe(false);
+    expect(scoreQuiz(m6Quiz, answers).passed).toBe(false);
   });
 });
 

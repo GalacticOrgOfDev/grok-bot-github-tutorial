@@ -1,8 +1,8 @@
 import type { LessonContent } from '../../types';
 
 export const skillsLessons: Record<string, LessonContent> = {
-  'm5-l1-sort': {
-    id: 'm5-l1-sort',
+  'm6-l1-sort': {
+    id: 'm6-l1-sort',
     title: 'Skill vs routine vs once',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -31,8 +31,8 @@ export const skillsLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm5-l2-author': {
-    id: 'm5-l2-author',
+  'm6-l2-author': {
+    id: 'm6-l2-author',
     title: 'Author field-job-brief',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -66,8 +66,8 @@ export const skillsLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm5-l3-wire': {
-    id: 'm5-l3-wire',
+  'm6-l3-wire': {
+    id: 'm6-l3-wire',
     title: 'Point the team at one skill',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -87,7 +87,7 @@ export const skillsLessons: Record<string, LessonContent> = {
       },
       {
         heading: 'Reuse M4 crew',
-        body: 'Fixture bots Crew Scheduler and Job Packets already exist from Module 4. Point both at field-job-brief for morning-brief asks. Leave Estimator out unless estimating.',
+        body: 'Fixture bots Crew Scheduler and Job Packets already exist from Module 5. Point both at field-job-brief for morning-brief asks. Leave Estimator out unless estimating.',
         bullets: [
           'Both specialists referenced',
           'Skill named: field-job-brief',
@@ -96,8 +96,8 @@ export const skillsLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm5-l4-harden': {
-    id: 'm5-l4-harden',
+  'm6-l4-harden': {
+    id: 'm6-l4-harden',
     title: 'Harden / update / delete',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],

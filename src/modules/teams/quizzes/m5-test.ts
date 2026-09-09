@@ -1,9 +1,9 @@
 import type { Quiz } from '../../types';
 
 /** 10 questions · pass ≥ 8/10 (passScore 0.8) */
-export const m4Quiz: Quiz = {
-  id: 'm4-test',
-  title: 'Module 4 quiz',
+export const m5Quiz: Quiz = {
+  id: 'm5-test',
+  title: 'Module 5 quiz',
   passScore: 0.8,
   questions: [
     {
@@ -145,7 +145,7 @@ export const m4Quiz: Quiz = {
     {
       id: 'q10',
       kind: 'mc',
-      stem: 'Module 4 complete when you can…',
+      stem: 'Module 5 complete when you can…',
       options: [
         { id: 'A', text: 'Only use one mega-chat forever' },
         {

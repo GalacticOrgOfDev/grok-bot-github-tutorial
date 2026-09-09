@@ -1,8 +1,8 @@
 import type { VideoLesson } from '../../types';
 
 export const swarmVideos: Record<string, VideoLesson> = {
-  'm6-intro': {
-    id: 'm6-intro',
+  'm7-intro': {
+    id: 'm7-intro',
     title: 'Aim the crew at a result',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -15,8 +15,8 @@ export const swarmVideos: Record<string, VideoLesson> = {
       { id: 'v0-4', title: 'CTA', narration: 'Next: rewrite fluffy goals into outcome + checks.', durationSec: 15, bullets: ['CTA: Outcome drill'] },
     ],
   },
-  'm6-v2': {
-    id: 'm6-v2',
+  'm7-v2': {
+    id: 'm7-v2',
     title: 'Minimum viable swarm',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -29,8 +29,8 @@ export const swarmVideos: Record<string, VideoLesson> = {
       { id: 'v2-4', title: 'CTA', narration: 'Assemble the Van Singel Install crew next.', durationSec: 15, bullets: ['CTA: Assemble'] },
     ],
   },
-  'm6-v3': {
-    id: 'm6-v3',
+  'm7-v3': {
+    id: 'm7-v3',
     title: 'The orchestration loop',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -43,8 +43,8 @@ export const swarmVideos: Record<string, VideoLesson> = {
       { id: 'v3-4', title: 'CTA', narration: 'Run the sandbox loop next.', durationSec: 20, bullets: ['CTA: Run loop'] },
     ],
   },
-  'm6-v4': {
-    id: 'm6-v4',
+  'm7-v4': {
+    id: 'm7-v4',
     title: 'Guardrails & teardown',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -57,17 +57,17 @@ export const swarmVideos: Record<string, VideoLesson> = {
       { id: 'v4-4', title: 'CTA', narration: 'Teardown drill next.', durationSec: 15, bullets: ['CTA: Teardown'] },
     ],
   },
-  'm6-outro': {
-    id: 'm6-outro',
+  'm7-outro': {
+    id: 'm7-outro',
     title: 'Series complete + electives',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
     estMinutes: 1,
-    cta: 'Pass quiz; electives optional; Slack stays stub.',
+    cta: 'Pass quiz; electives optional.',
     slides: [
       { id: 'vo-1', title: 'Series complete', narration: 'You are series-complete: connect -> daily use -> routines -> teams -> skills -> outcome swarm with guardrails.', durationSec: 20, bullets: ['M1-M6 core done'] },
       { id: 'vo-2', title: 'Electives', narration: 'Electives like Gmail, maps, shopping are optional.', durationSec: 20, bullets: ['Optional deep paths'] },
-      { id: 'vo-3', title: 'Slack', narration: 'Slack remains stub unless your world lives there.', durationSec: 20, bullets: ['Slack stays stub', 'Pass quiz >=8/10'] },
+      { id: 'vo-3', title: 'Series', narration: 'Core path complete — Slack is live for specialists who need it.', durationSec: 20, bullets: ['M1–M7 core complete', 'Pass quiz >=8/10'] },
     ],
   },
 };

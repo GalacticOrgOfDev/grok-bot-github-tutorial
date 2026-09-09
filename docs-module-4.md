@@ -1,27 +1,24 @@
-# Module 4: Grok Bot + Bot Teams
+# Module 4: Grok Bot + Routines
 
-Live unlockable module under src/modules/teams (`moduleId: teams`).
+Live unlockable module under src/modules/routines (`moduleId: routines`).
 
 ## Lesson IDs
 
-m4-intro, m4-l1-roles, m4-v2, m4-l2-dm, m4-v3, m4-l3-channel, m4-v4, m4-l4-coord, m4-practice-capstone, m4-test, m4-outro
+m4-intro, m4-l1-when, m4-v2, m4-l2-cron, m4-v3, m4-l3-events, m4-v4, m4-l4-hygiene, m4-practice-capstone, m4-test, m4-outro
 
 ## Flow
 
-roles → DM → channel → CoS / no-spam → capstone → quiz → outro
+when → schedule → events → hygiene → capstone → quiz → outro
 
 ## Fixture
 
-bot-team-van-singel (src/shared/sandboxFixtures/botTeamVanSingel.ts + bot-team-van-singel.json)
-- bots: Chief of Staff, Crew Scheduler, Job Packets, Estimator
-- channel: Van Singel Install (scheduler, packets, estimator)
-- spamCards: 4 OK/Don’t tags
-- reuses M2 week + missing signed-contract.pdf
+routine-pack-spring-week (src/shared/sandboxFixtures/routinePackSpringWeek.ts + routine-pack-spring-week.json)
+- timezone America/Detroit, calendar Crew Schedule
+- existingRoutines: Weekday field brief (enabled), test morning (junk)
+- targets.weekdayFieldBrief: `0 7 * * 1-5` read-only quiet-if-empty
+- targets.wedConflictGuard: `0 18 * * 2` Van Singel/Jamestown propose-only
+- sortCards: 6 once/routine tags
 
 ## Practices
 
-A roles, B dm, C channel, D no-spam (≥3/4), + capstone (4/5 keys). Quiz 10Q pass ≥8.
-
-## Slack
-
-Thin stub only (status: stub). Teach channel as Grok Bot group chat, not Slack.
+A when-routine (≥5/6), B morning-cron, C event-babysit, D hygiene, + capstone (3/4 keys). Quiz 10Q pass ≥8.

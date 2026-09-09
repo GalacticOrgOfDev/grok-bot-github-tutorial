@@ -104,11 +104,11 @@ const metaById: Record<string, LessonMeta> = {
   },
   'm2-outro': {
     id: 'm2-outro',
-    title: "What's next (+ Slack stub for others)",
+    title: "What's next (Slack + Routines)",
     type: 'video',
     estMinutes: 1,
     depths: ['skim', 'solid', 'deep'],
-    summary: 'Recap + Slack stub tease.',
+    summary: 'Recap; Module 3 Slack for specialists; then Routines.',
   },
 };
 

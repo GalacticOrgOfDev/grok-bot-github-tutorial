@@ -1,8 +1,8 @@
 import type { LessonContent } from '../../types';
 
 export const swarmLessons: Record<string, LessonContent> = {
-  'm6-l1-outcome': {
-    id: 'm6-l1-outcome',
+  'm7-l1-outcome': {
+    id: 'm7-l1-outcome',
     title: 'Write a one-line outcome + success checks',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -31,8 +31,8 @@ export const swarmLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm6-l2-assemble': {
-    id: 'm6-l2-assemble',
+  'm7-l2-assemble': {
+    id: 'm7-l2-assemble',
     title: 'Seat bots, attach skills, set routines',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -50,7 +50,7 @@ export const swarmLessons: Record<string, LessonContent> = {
         ],
         callout: {
           kind: 'warn',
-          text: 'Don’t fan out to every bot on day one. Slack stays stub — teach channel as Grok Bot group chat.',
+          text: 'Don’t fan out to every bot on day one. Teach channel as Grok Bot group chat (Slack connector is a separate optional module).',
         },
         uiPath: 'Channel → Seat bots → Attach skills → Set routines',
       },
@@ -62,8 +62,8 @@ export const swarmLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm6-l3-run': {
-    id: 'm6-l3-run',
+  'm7-l3-run': {
+    id: 'm7-l3-run',
     title: 'Run kickoff → decide (sandbox)',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -96,8 +96,8 @@ export const swarmLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm6-l4-teardown': {
-    id: 'm6-l4-teardown',
+  'm7-l4-teardown': {
+    id: 'm7-l4-teardown',
     title: 'Pause/delete what you don’t need',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],

@@ -1,8 +1,8 @@
 import type { VideoLesson } from '../../types';
 
 export const skillsVideos: Record<string, VideoLesson> = {
-  'm5-intro': {
-    id: 'm5-intro',
+  'm6-intro': {
+    id: 'm6-intro',
     title: 'Playbooks > repeating yourself',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -39,8 +39,8 @@ export const skillsVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm5-v2': {
-    id: 'm5-v2',
+  'm6-v2': {
+    id: 'm6-v2',
     title: 'Anatomy of a good skill',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -77,8 +77,8 @@ export const skillsVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm5-v3': {
-    id: 'm5-v3',
+  'm6-v3': {
+    id: 'm6-v3',
     title: 'Share playbooks across bots',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -115,8 +115,8 @@ export const skillsVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm5-v4': {
-    id: 'm5-v4',
+  'm6-v4': {
+    id: 'm6-v4',
     title: 'Dangerous skills & fixes',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -153,13 +153,13 @@ export const skillsVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm5-outro': {
-    id: 'm5-outro',
+  'm6-outro': {
+    id: 'm6-outro',
     title: 'Next: outcome swarms',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
     estMinutes: 1,
-    cta: 'Pass quiz; keep Slack stub.',
+    cta: 'Pass quiz; next Swarms.',
     slides: [
       {
         id: 'vo-1',
@@ -173,14 +173,14 @@ export const skillsVideos: Record<string, VideoLesson> = {
         title: 'Next module',
         narration: 'Next = swarm aimed at a real Thursday install outcome.',
         durationSec: 15,
-        bullets: ['Module 6: Outcome swarms'],
+        bullets: ['Module 7: Outcome swarms'],
       },
       {
         id: 'vo-3',
         title: 'CTA',
-        narration: 'Pass the quiz; Slack stays stub.',
+        narration: 'Pass the quiz; next Outcome Swarms.',
         durationSec: 15,
-        bullets: ['80% to pass', 'Slack stays stub'],
+        bullets: ['80% to pass', 'Next: Swarms'],
       },
     ],
   },

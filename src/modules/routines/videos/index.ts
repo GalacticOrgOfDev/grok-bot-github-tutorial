@@ -1,8 +1,8 @@
 import type { VideoLesson } from '../../types';
 
 export const routinesVideos: Record<string, VideoLesson> = {
-  'm3-intro': {
-    id: 'm3-intro',
+  'm4-intro': {
+    id: 'm4-intro',
     title: 'Why routines (work while you’re in the truck)',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -41,8 +41,8 @@ export const routinesVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm3-v2': {
-    id: 'm3-v2',
+  'm4-v2': {
+    id: 'm4-v2',
     title: 'Scheduled briefs',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -79,8 +79,8 @@ export const routinesVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm3-v3': {
-    id: 'm3-v3',
+  'm4-v3': {
+    id: 'm4-v3',
     title: 'Event listeners (“ping me when”)',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -118,8 +118,8 @@ export const routinesVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm3-v4': {
-    id: 'm3-v4',
+  'm4-v4': {
+    id: 'm4-v4',
     title: 'Safe prompts & silence rules',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -156,13 +156,13 @@ export const routinesVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm3-outro': {
-    id: 'm3-outro',
+  'm4-outro': {
+    id: 'm4-outro',
     title: 'Next: bot teams',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
     estMinutes: 1,
-    cta: 'Pass quiz; keep Slack stub.',
+    cta: 'Pass quiz; next Bot Teams.',
     slides: [
       {
         id: 'vo-1',
@@ -177,15 +177,15 @@ export const routinesVideos: Record<string, VideoLesson> = {
         narration:
           'Next module: Bot Teams — specialists you can message.',
         durationSec: 15,
-        bullets: ['Module 4: Bot Teams'],
+        bullets: ['Module 5: Bot Teams'],
       },
       {
         id: 'vo-3',
         title: 'CTA',
         narration:
-          'Pass the quiz; keep Slack stub unless you need team chat later.',
+          'Pass the quiz; next deepen with Bot Teams.',
         durationSec: 15,
-        bullets: ['80% to pass', 'Slack stays stub'],
+        bullets: ['80% to pass', 'Next: Bot Teams'],
       },
     ],
   },

@@ -1,28 +1,27 @@
-# Module 5: Grok Bot + Skills & Custom Tools
+# Module 5: Grok Bot + Bot Teams
 
-Live unlockable module under src/modules/skills (`moduleId: skills`).
+Live unlockable module under src/modules/teams (`moduleId: teams`).
 
 ## Lesson IDs
 
-m5-intro, m5-l1-sort, m5-v2, m5-l2-author, m5-v3, m5-l3-wire, m5-v4, m5-l4-harden, m5-practice-capstone, m5-test, m5-outro
+m5-intro, m5-l1-roles, m5-v2, m5-l2-dm, m5-v3, m5-l3-channel, m5-v4, m5-l4-coord, m5-practice-capstone, m5-test, m5-outro
 
 ## Flow
 
-sort → author → wire team → harden → capstone → quiz → outro
+roles → DM → channel → CoS / no-spam → capstone → quiz → outro
 
 ## Fixture
 
-skills-pack-field (src/shared/sandboxFixtures/skillsPackField.ts + skills-pack-field.json)
-- create: field-job-brief, job-packet-audit
-- harden: auto-text-clients
-- delete: tmp-skill-test
-- sortCards: 6 Skill/Routine/Once tags
-- reuses Van Singel backyard folder (missing signed-contract.pdf)
+bot-team-van-singel (src/shared/sandboxFixtures/botTeamVanSingel.ts + bot-team-van-singel.json)
+- bots: Chief of Staff, Crew Scheduler, Job Packets, Estimator
+- channel: Van Singel Install (scheduler, packets, estimator)
+- spamCards: 4 OK/Don't tags
+- reuses M2 week + missing signed-contract.pdf
 
 ## Practices
 
-A sort (≥5/6), B author brief, C wire team, D harden (≥3/4), + capstone (3/4 keys). Quiz 10Q pass ≥8.
+A roles, B dm, C channel, D no-spam (≥3/4), + capstone (4/5 keys). Quiz 10Q pass ≥8.
 
-## Slack
+## Channel note
 
-Thin stub only (status: stub). Teach channel as Grok Bot group chat, not Slack.
+Teach “channel” as Grok Bot group chat in this module (distinct from the live Slack connector module).

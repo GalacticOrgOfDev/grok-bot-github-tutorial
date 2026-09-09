@@ -1,0 +1,52 @@
+{
+  "fixtureId": "slack-crew-ops",
+  "moduleId": "slack",
+  "workspace": "Springdyke Demo",
+  "channel": "#crew-ops",
+  "channelId": "C-CREW-OPS",
+  "messages": [
+    {
+      "author": "alex",
+      "text": "Staging at yard 7am tomorrow"
+    },
+    {
+      "author": "jordan",
+      "text": "Van Singel needs 3 crew Thu"
+    },
+    {
+      "author": "sam",
+      "text": "@crew-lead need trailer hitch confirmation before 6pm",
+      "openAsk": true
+    },
+    {
+      "author": "alex",
+      "text": "Forecast looking wet Fri"
+    },
+    {
+      "author": "jordan",
+      "text": "If weather turns we'll cancel Fri mow route \u2014 post cancel in thread"
+    },
+    {
+      "author": "sam",
+      "text": "Anyone seen the hitch inventory sheet?"
+    }
+  ],
+  "openAsk": "trailer hitch confirmation",
+  "draftReplyShape": "Confirmed: Van Singel Thursday 8am, crew of 3. Trailer hitch reserved/confirmed.",
+  "routineTarget": {
+    "name": "Crew-ops weather/cancel",
+    "channel": "#crew-ops",
+    "keywords": [
+      "weather",
+      "cancel"
+    ],
+    "promptIntent": "Ping with author, text, and one next action. Do not reply in Slack unless asked."
+  },
+  "safetyNeverAuto": [
+    "@channel",
+    "pricing",
+    "client PII",
+    "passwords"
+  ],
+  "moduleNumber": 3
+}

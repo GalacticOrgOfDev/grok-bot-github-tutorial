@@ -1,8 +1,8 @@
 import type { LessonContent } from '../../types';
 
 export const teamsLessons: Record<string, LessonContent> = {
-  'm4-l1-roles': {
-    id: 'm4-l1-roles',
+  'm5-l1-roles': {
+    id: 'm5-l1-roles',
     title: 'Design 3 roles for a field business',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -31,8 +31,8 @@ export const teamsLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm4-l2-dm': {
-    id: 'm4-l2-dm',
+  'm5-l2-dm': {
+    id: 'm5-l2-dm',
     title: 'Send a crisp async ask',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -56,8 +56,8 @@ export const teamsLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm4-l3-channel': {
-    id: 'm4-l3-channel',
+  'm5-l3-channel': {
+    id: 'm5-l3-channel',
     title: 'Stand up a project room',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -71,7 +71,7 @@ export const teamsLessons: Record<string, LessonContent> = {
           'Create channel Van Singel Install seating Crew Scheduler + Job Packets (+ Estimator optional). Post one kickoff: Thursday 8–3 install; conflict cleared; need contract check.',
         callout: {
           kind: 'warn',
-          text: 'Slack stays a stub in this app. Teach “channel” as Grok Bot group chat.',
+          text: 'Teach “channel” as Grok Bot group chat here — distinct from the Slack connector module.',
         },
         uiPath: 'Channels → New → Seat bots → Kickoff',
       },
@@ -86,8 +86,8 @@ export const teamsLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm4-l4-coord': {
-    id: 'm4-l4-coord',
+  'm5-l4-coord': {
+    id: 'm5-l4-coord',
     title: 'Assignment without spam',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],

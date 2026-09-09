@@ -21,7 +21,7 @@ export const skillsPractices: Record<string, PracticeDrill> = {
     id: 'practice-skill-sort',
     title: 'Drill A — Skill / Routine / Once',
     goal: 'Tag each card Skill, Routine, or Once.',
-    afterLesson: 'm5-l1-sort',
+    afterLesson: 'm6-l1-sort',
     passCriteria: '≥5/6 cards tagged correctly.',
     failHints: [
       'Weekday 7am run → Routine',
@@ -54,7 +54,7 @@ export const skillsPractices: Record<string, PracticeDrill> = {
     id: 'practice-author-brief',
     title: 'Drill B — Author field-job-brief',
     goal: 'Create skill field-job-brief with when-to-use + read-only 5-line body.',
-    afterLesson: 'm5-l2-author',
+    afterLesson: 'm6-l2-author',
     passCriteria:
       'description is when-to-use; body has read-only + 5-line format + NO_EVENTS.',
     failHints: [
@@ -118,7 +118,7 @@ export const skillsPractices: Record<string, PracticeDrill> = {
     id: 'practice-wire-team',
     title: 'Drill C — Wire the team',
     goal: 'Point Crew Scheduler + Job Packets at [field-job-brief].',
-    afterLesson: 'm5-l3-wire',
+    afterLesson: 'm6-l3-wire',
     passCriteria:
       'both specialists referenced; skill named; no fan-out to unrelated bots.',
     failHints: [
@@ -175,7 +175,7 @@ export const skillsPractices: Record<string, PracticeDrill> = {
     id: 'practice-harden',
     title: 'Drill D — Harden / delete',
     goal: 'Rewrite auto-text-clients; delete tmp-skill-test.',
-    afterLesson: 'm5-l4-harden',
+    afterLesson: 'm6-l4-harden',
     passCriteria: 'rewrite gates sends; delete confirmed.',
     failHints: [
       'Clear when-to-use (not “stuff”)',
@@ -236,11 +236,11 @@ export const skillsPractices: Record<string, PracticeDrill> = {
     ],
   },
 
-  'practice-capstone-m5': {
-    id: 'practice-capstone-m5',
+  'practice-capstone-m6': {
+    id: 'practice-capstone-m6',
     title: 'Capstone — two skills for install week',
     goal: 'Ship field-job-brief + job-packet-audit; name which bot runs which.',
-    afterLesson: 'm5-practice-capstone',
+    afterLesson: 'm6-practice-capstone',
     blurb: f.promptChips.capstoneBlurb,
     passCriteria:
       'both saved with when-to-use; both confirm-gated; learner names which bot should run which.',

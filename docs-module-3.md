@@ -1,28 +1,24 @@
-# Module 3: Grok Bot + Routines
+# Module 3: Grok Bot + Slack
 
-Live unlockable module under src/modules/routines (`moduleId: routines`).
+Live Solid module under src/modules/slack (`moduleId: slack`). Path slot: after Google, before Routines.
 
 ## Lesson IDs
 
-m3-intro, m3-l1-when, m3-v2, m3-l2-cron, m3-v3, m3-l3-events, m3-v4, m3-l4-hygiene, m3-practice-capstone, m3-test, m3-outro
+m3-intro, m3-l1-connect, m3-v2, m3-l2-read, m3-v3, m3-l3-write, m3-v4, m3-l4-routine, m3-practice-capstone, m3-test, m3-outro
 
 ## Flow
 
-when → schedule → events → hygiene → capstone → quiz → outro
+connect → read → safe write → Slack routines → practice → test → outro (Module 4 Routines)
 
 ## Fixture
 
-routine-pack-spring-week (src/shared/sandboxFixtures/routinePackSpringWeek.ts + routine-pack-spring-week.json)
-- timezone America/Detroit, calendar Crew Schedule
-- existingRoutines: Weekday field brief (enabled), test morning (junk)
-- targets.weekdayFieldBrief: `0 7 * * 1-5` read-only quiet-if-empty
-- targets.wedConflictGuard: `0 18 * * 2` Van Singel/Jamestown propose-only
-- sortCards: 6 once/routine tags
+slack-crew-ops (src/shared/sandboxFixtures/slackCrewOps.ts + slack-crew-ops.json)
+- workspace Springdyke Demo, channel #crew-ops (C-CREW-OPS)
+- openAsk: trailer hitch confirmation
+- draftReplyShape: Van Singel Thursday 8am crew of 3 + hitch confirmed
+- routineTarget: Crew-ops weather/cancel (keywords weather|cancel)
+- safetyNeverAuto: @channel, pricing, client PII, passwords
 
 ## Practices
 
-A when-routine (≥5/6), B morning-cron, C event-babysit, D hygiene, + capstone (3/4 keys). Quiz 10Q pass ≥8.
-
-## Slack
-
-Thin stub only (status: stub). Not required.
+A practice-slack-connect, B practice-slack-read (open ask = hitch), C practice-slack-write (draft-before-post), D practice-slack-routine (weather|cancel), + practice-capstone-slack (4/5). Quiz 10Q pass ≥8.

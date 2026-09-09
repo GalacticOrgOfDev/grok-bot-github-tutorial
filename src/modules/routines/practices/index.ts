@@ -21,7 +21,7 @@ export const routinesPractices: Record<string, PracticeDrill> = {
     id: 'practice-when-routine',
     title: 'Drill A — When to automate',
     goal: 'Sort asks into Routine vs Once.',
-    afterLesson: 'm3-l1-when',
+    afterLesson: 'm4-l1-when',
     passCriteria: '≥5/6 cards tagged correctly.',
     failHints: [
       'Recurring / “ping me when” → Routine',
@@ -53,7 +53,7 @@ export const routinesPractices: Record<string, PracticeDrill> = {
     id: 'practice-morning-cron',
     title: 'Drill B — Weekday morning routine',
     goal: 'Create a scheduled routine from a prompt chip.',
-    afterLesson: 'm3-l2-cron',
+    afterLesson: 'm4-l2-cron',
     passCriteria:
       'Schedule ≈ 0 7 * * 1-5 Detroit; prompt has calendar + read-only + quiet-if-empty; name present.',
     failHints: [
@@ -110,7 +110,7 @@ export const routinesPractices: Record<string, PracticeDrill> = {
     id: 'practice-event-babysit',
     title: 'Drill C — Event babysitter',
     goal: 'Event-driven babysitter (GitHub PR or day-before packet).',
-    afterLesson: 'm3-l3-events',
+    afterLesson: 'm4-l3-events',
     passCriteria:
       'GitHub-shaped trigger, PR scoped, terminal merge/close, useful digest — or day-before alt.',
     failHints: [
@@ -176,7 +176,7 @@ export const routinesPractices: Record<string, PracticeDrill> = {
     id: 'practice-hygiene',
     title: 'Drill D — Pause, update, delete',
     goal: 'Manage lifecycle — no zombies.',
-    afterLesson: 'm3-l4-hygiene',
+    afterLesson: 'm4-l4-hygiene',
     passCriteria: 'Correct action matched to each step; pause ≠ delete.',
     failHints: [
       'Pause Weekday field brief',
@@ -235,11 +235,11 @@ export const routinesPractices: Record<string, PracticeDrill> = {
     ],
   },
 
-  'practice-capstone-m3': {
-    id: 'practice-capstone-m3',
+  'practice-capstone-m4': {
+    id: 'practice-capstone-m4',
     title: 'Capstone — Field-week automation pack',
     goal: 'Ship two automations, no spam.',
-    afterLesson: 'm3-practice-capstone',
+    afterLesson: 'm4-practice-capstone',
     blurb: f.promptChips.capstoneBlurb,
     passCriteria: '3/4 verifier keys + safety declaration non-empty.',
     failHints: [

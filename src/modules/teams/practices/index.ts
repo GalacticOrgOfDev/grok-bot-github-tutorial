@@ -19,7 +19,7 @@ export const teamsPractices: Record<string, PracticeDrill> = {
     id: 'practice-roles',
     title: 'Drill A — Design 3 roles',
     goal: 'Pick/write 3 bots for a landscaping week with clear boundaries.',
-    afterLesson: 'm4-l1-roles',
+    afterLesson: 'm5-l1-roles',
     passCriteria: '3 names + descriptions with clear boundaries (what they won’t do).',
     failHints: [
       'Crew Scheduler — calendar; propose; never silent-write',
@@ -75,7 +75,7 @@ export const teamsPractices: Record<string, PracticeDrill> = {
     id: 'practice-dm',
     title: 'Drill B — Crisp async ask',
     goal: 'Message one specialist with a scoped, confirm-gated ask.',
-    afterLesson: 'm4-l2-dm',
+    afterLesson: 'm5-l2-dm',
     passCriteria: 'Single target, scoped ask, no fan-out, confirm-gated writes.',
     failHints: [
       'Target Job Packets only',
@@ -130,7 +130,7 @@ export const teamsPractices: Record<string, PracticeDrill> = {
     id: 'practice-channel',
     title: 'Drill C — Project channel',
     goal: 'Create Van Singel Install with the right seats + one kickoff.',
-    afterLesson: 'm4-l3-channel',
+    afterLesson: 'm5-l3-channel',
     passCriteria: 'Channel name, ≥2 members, one kickoff not five redundant pings.',
     failHints: [
       'Name: Van Singel Install',
@@ -178,7 +178,7 @@ export const teamsPractices: Record<string, PracticeDrill> = {
         prompt: 'In this tutorial, “channel” means Slack?',
         kind: 'boolean',
         correctBoolean: false,
-        explanation: 'Grok Bot group chat — Slack stays stub.',
+        explanation: 'Grok Bot group chat — not the Slack connector.',
       },
     ],
   },
@@ -187,7 +187,7 @@ export const teamsPractices: Record<string, PracticeDrill> = {
     id: 'practice-no-spam',
     title: 'Drill D — OK vs Don’t',
     goal: 'Tag coordination cards OK vs Don’t.',
-    afterLesson: 'm4-l4-coord',
+    afterLesson: 'm5-l4-coord',
     passCriteria: '≥3/4 cards tagged correctly.',
     failHints: [
       'Scoped specialist ping → OK',
@@ -217,11 +217,11 @@ export const teamsPractices: Record<string, PracticeDrill> = {
     })),
   },
 
-  'practice-capstone-m4': {
-    id: 'practice-capstone-m4',
+  'practice-capstone-m5': {
+    id: 'practice-capstone-m5',
     title: 'Capstone — Thursday install team',
     goal: 'Stand up staff + room; get proposal + packet gap; gate client email.',
-    afterLesson: 'm4-practice-capstone',
+    afterLesson: 'm5-practice-capstone',
     blurb: f.promptChips.capstoneBlurb,
     passCriteria: '4/5 verifier keys.',
     failHints: [

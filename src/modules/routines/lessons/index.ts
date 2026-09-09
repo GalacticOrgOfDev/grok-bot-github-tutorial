@@ -1,8 +1,8 @@
 import type { LessonContent } from '../../types';
 
 export const routinesLessons: Record<string, LessonContent> = {
-  'm3-l1-when': {
-    id: 'm3-l1-when',
+  'm4-l1-when': {
+    id: 'm4-l1-when',
     title: 'When to automate vs ask once',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -30,8 +30,8 @@ export const routinesLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm3-l2-cron': {
-    id: 'm3-l2-cron',
+  'm4-l2-cron': {
+    id: 'm4-l2-cron',
     title: 'Build a weekday morning routine',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -59,8 +59,8 @@ export const routinesLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm3-l3-events': {
-    id: 'm3-l3-events',
+  'm4-l3-events': {
+    id: 'm4-l3-events',
     title: 'Babysit a change (GitHub or job-day pattern)',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],
@@ -85,8 +85,8 @@ export const routinesLessons: Record<string, LessonContent> = {
       },
     ],
   },
-  'm3-l4-hygiene': {
-    id: 'm3-l4-hygiene',
+  'm4-l4-hygiene': {
+    id: 'm4-l4-hygiene',
     title: 'Pause, update, delete, no zombies',
     type: 'lesson',
     depths: ['skim', 'solid', 'deep'],

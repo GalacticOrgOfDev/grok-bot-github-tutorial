@@ -1,8 +1,8 @@
 import type { VideoLesson } from '../../types';
 
 export const teamsVideos: Record<string, VideoLesson> = {
-  'm4-intro': {
-    id: 'm4-intro',
+  'm5-intro': {
+    id: 'm5-intro',
     title: 'Your AI crew, not one overloaded brain',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -39,8 +39,8 @@ export const teamsVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm4-v2': {
-    id: 'm4-v2',
+  'm5-v2': {
+    id: 'm5-v2',
     title: 'Message one specialist',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -77,8 +77,8 @@ export const teamsVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm4-v3': {
-    id: 'm4-v3',
+  'm5-v3': {
+    id: 'm5-v3',
     title: 'Channels & seating',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -115,8 +115,8 @@ export const teamsVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm4-v4': {
-    id: 'm4-v4',
+  'm5-v4': {
+    id: 'm5-v4',
     title: 'CoS patterns & fan-out rules',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
@@ -153,13 +153,13 @@ export const teamsVideos: Record<string, VideoLesson> = {
       },
     ],
   },
-  'm4-outro': {
-    id: 'm4-outro',
+  'm5-outro': {
+    id: 'm5-outro',
     title: 'Next: skills & custom tools',
     type: 'video',
     depths: ['skim', 'solid', 'deep'],
     estMinutes: 1,
-    cta: 'Pass quiz; keep Slack stub.',
+    cta: 'Pass quiz; next Skills.',
     slides: [
       {
         id: 'vo-1',
@@ -173,14 +173,14 @@ export const teamsVideos: Record<string, VideoLesson> = {
         title: 'Next module',
         narration: 'Next: Skills & custom tools so every bot shares playbooks.',
         durationSec: 15,
-        bullets: ['Module 5: Skills & Custom Tools'],
+        bullets: ['Module 6: Skills & Custom Tools'],
       },
       {
         id: 'vo-3',
         title: 'CTA',
-        narration: 'Pass the quiz; Slack stays stub unless you opt into team chat later.',
+        narration: 'Pass the quiz; next deepen with Skills & Custom Tools.',
         durationSec: 15,
-        bullets: ['80% to pass', 'Slack stays stub'],
+        bullets: ['80% to pass', 'Next: Skills'],
       },
     ],
   },
