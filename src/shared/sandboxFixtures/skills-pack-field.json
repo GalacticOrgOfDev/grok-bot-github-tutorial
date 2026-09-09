@@ -1,0 +1,32 @@
+{
+  "fixtureId": "skills-pack-field",
+  "moduleId": "skills",
+  "skills": {
+    "field-job-brief": {
+      "action": "create",
+      "description": "Use this when the learner or a bot needs a concise same-day field brief from Calendar (and optional Drive job folder).",
+      "constraints": ["read-only", "5-line output", "NO_EVENTS if empty", "America/Detroit", "flag gaps under 30 minutes"]
+    },
+    "job-packet-audit": {
+      "action": "create",
+      "description": "Use this when checking a job Drive folder before install against the packet checklist.",
+      "checklist": ["site-before.jpg", "layout-sketch.pdf", "estimate-*.pdf", "signed-contract.pdf"],
+      "constraints": ["draft estimate share only", "confirm before send or permission change"]
+    },
+    "auto-text-clients": {
+      "action": "harden",
+      "brokenDescription": "stuff",
+      "brokenBody": "Send texts to all clients with tomorrow's jobs. Use any phone numbers in Drive.",
+      "requiredFixes": ["clear when-to-use", "draft-only", "human confirm before send", "no unrelated folder scraping"]
+    },
+    "tmp-skill-test": {"action": "delete", "junk": true}
+  },
+  "sortCards": [
+    {"text": "Every weekday 7am, run the field brief", "answer": "routine"},
+    {"text": "How to build a 5-line field brief from Calendar + Drive", "answer": "skill"},
+    {"text": "Summarize today's calendar right now", "answer": "once"},
+    {"text": "When PR CI fails, ping me", "answer": "routine"},
+    {"text": "Steps to check a job folder against the packet checklist", "answer": "skill"},
+    {"text": "Draft one homeowner text for Van Singel", "answer": "once"}
+  ]
+}
