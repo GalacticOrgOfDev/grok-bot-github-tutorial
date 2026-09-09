@@ -21,8 +21,10 @@ export interface ModuleManifest {
   objectives: string[];
   estMinutes: number;
   prereqs: string[];
-  status: 'live' | 'coming-soon';
+  status: 'live' | 'coming-soon' | 'stub';
   lessonOrder: string[];
+  connectors?: string[];
+  platform?: string;
 }
 
 export interface ContentBlock {
