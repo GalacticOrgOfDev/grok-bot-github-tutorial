@@ -26,7 +26,7 @@ export function HomeScreen({ navigation }: Props) {
         <Text style={styles.kicker}>Grok Bot + *</Text>
         <Text style={styles.title}>Mobile tutorials</Text>
         <Text style={styles.sub}>
-          Touch-first Modules 1–4 for specialists on the go. Offline lesson
+          Touch-first Modules 1–5 for specialists on the go. Offline lesson
           content; live connectors only where drills need them. Depth filter
           Skim / Solid / Deep still applies.
         </Text>
