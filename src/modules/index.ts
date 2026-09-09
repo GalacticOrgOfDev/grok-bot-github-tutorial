@@ -1,5 +1,5 @@
 import { githubModule, githubManifest } from './github';
-import { googleManifest } from './google';
+import { googleModule, googleManifest } from './google';
 import { slackManifest } from './slack';
 import type { ModuleBundle, ModuleManifest } from './types';
 
@@ -11,8 +11,15 @@ export const allManifests: ModuleManifest[] = [
 
 export function getModule(moduleId: string): ModuleBundle | null {
   if (moduleId === 'github') return githubModule;
+  if (moduleId === 'google') return googleModule;
   return null;
 }
 
-export { githubModule, githubManifest, googleManifest, slackManifest };
+export {
+  githubModule,
+  githubManifest,
+  googleModule,
+  googleManifest,
+  slackManifest,
+};
 export * from './types';

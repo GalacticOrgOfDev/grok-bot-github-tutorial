@@ -5,7 +5,9 @@ export function assertManifest(m: ModuleManifest): string[] {
   if (!m.moduleId) errors.push('moduleId required');
   if (m.series !== 'grok-bot-plus') errors.push('series must be grok-bot-plus');
   if (m.passScore < 0 || m.passScore > 1) errors.push('passScore must be 0–1');
-  if (!m.lessonOrder?.length) errors.push('lessonOrder required');
+  if (m.status !== 'stub' && !m.lessonOrder?.length) {
+    errors.push('lessonOrder required');
+  }
   return errors;
 }
 
