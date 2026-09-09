@@ -135,7 +135,7 @@ describe('google module schema', () => {
 
   it('validates google practices', () => {
     for (const drill of Object.values(googlePractices)) {
-      expect(assertPractice(drill));
+      expect(assertPractice(drill)).toEqual([]);
     }
     expect(googlePractices['practice-capstone-m2'].passThreshold).toBe(4);
   });
