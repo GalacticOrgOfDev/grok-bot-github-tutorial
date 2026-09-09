@@ -10,6 +10,12 @@ import type { RootStackParamList } from '../navigation/types';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
+function statusLabel(status: string, estMinutes: number): string {
+  if (status === 'live') return `~${estMinutes} min · live`;
+  if (status === 'stub') return 'Stub · coming later';
+  return 'Coming soon';
+}
+
 export function HomeScreen({ navigation }: Props) {
   const { depth, changeDepth, moduleProgress, ready } = useProgress();
 
@@ -19,8 +25,9 @@ export function HomeScreen({ navigation }: Props) {
         <Text style={styles.kicker}>Grok Bot + *</Text>
         <Text style={styles.title}>Mobile tutorials</Text>
         <Text style={styles.sub}>
-          Touch-first Module 1 for specialists on the go. Offline lesson content;
-          live connector only for Drill A.
+          Touch-first Modules 1–2 for specialists on the go. Offline lesson
+          content; live connectors only where drills need them. Depth filter
+          Skim / Solid / Deep still applies.
         </Text>
         <Text style={styles.depthLabel}>Depth</Text>
         <DepthSelector value={depth} onChange={changeDepth} />
@@ -36,11 +43,8 @@ export function HomeScreen({ navigation }: Props) {
           renderItem={({ item }) => {
             const mp = moduleProgress(item.moduleId);
             const total = item.lessonOrder.length || 1;
-            const ratio =
-              item.status === 'live'
-                ? mp.completedLessonIds.length / total
-                : 0;
             const live = item.status === 'live';
+            const ratio = live ? mp.completedLessonIds.length / total : 0;
             return (
               <Pressable
                 disabled={!live}
@@ -52,7 +56,7 @@ export function HomeScreen({ navigation }: Props) {
                 <Text style={styles.cardTitle}>{item.title}</Text>
                 <Text style={styles.cardSub}>{item.subtitle}</Text>
                 <Text style={styles.meta}>
-                  {live ? `~${item.estMinutes} min · live` : 'Coming soon'}
+                  {statusLabel(item.status, item.estMinutes)}
                 </Text>
                 {live && (
                   <ProgressBar
