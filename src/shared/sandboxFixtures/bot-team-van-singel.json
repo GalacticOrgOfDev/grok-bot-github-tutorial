@@ -1,0 +1,20 @@
+{
+  "fixtureId": "bot-team-van-singel",
+  "moduleId": "teams",
+  "bots": [
+    {"sandboxId": "bot-cos", "name": "Chief of Staff", "role": "Assigns; doesn't do specialty work"},
+    {"sandboxId": "bot-scheduler", "name": "Crew Scheduler", "role": "Calendar; propose only; never silent-write"},
+    {"sandboxId": "bot-packets", "name": "Job Packets", "role": "Drive job folders; draft shares only"},
+    {"sandboxId": "bot-estimator", "name": "Estimator", "role": "Draft quotes; no send without confirm"}
+  ],
+  "channel": {
+    "name": "Van Singel Install",
+    "memberSandboxIds": ["bot-scheduler", "bot-packets", "bot-estimator"]
+  },
+  "spamCards": [
+    {"text": "Message Job Packets only about missing contract", "answer": "ok"},
+    {"text": "@entire company about a maybe", "answer": "dont"},
+    {"text": "Wait for user confirm before emailing homeowner", "answer": "ok"},
+    {"text": "Relay user's angry rant verbatim to Estimator", "answer": "dont"}
+  ]
+}
