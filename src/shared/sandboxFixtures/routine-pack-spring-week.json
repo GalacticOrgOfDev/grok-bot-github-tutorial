@@ -1,0 +1,32 @@
+{
+  "fixtureId": "routine-pack-spring-week",
+  "moduleId": "routines",
+  "timezone": "America/Detroit",
+  "calendar": "Crew Schedule",
+  "existingRoutines": [
+    {"name": "Weekday field brief", "enabled": true},
+    {"name": "test morning", "enabled": true, "junk": true}
+  ],
+  "targets": {
+    "weekdayFieldBrief": {
+      "name": "Weekday field brief",
+      "schedule": "0 7 * * 1-5",
+      "timezone": "America/Detroit",
+      "promptIntent": "Summarize today's Crew Schedule (time, title, location). Mention matching Jobs/2026 Drive folder for main job if found. Read-only. Stay quiet if empty."
+    },
+    "wedConflictGuard": {
+      "name": "Wed conflict guard",
+      "schedule": "0 18 * * 2",
+      "timezone": "America/Detroit",
+      "promptIntent": "Inspect Wednesday Crew Schedule. If Mulch delivery — Van Singel overlaps Consult — Jamestown patio, ping with two propose-only reschedule options. If no conflict, stay quiet. Never edit the calendar."
+    }
+  },
+  "sortCards": [
+    {"text": "What's on my calendar right now?", "answer": "once"},
+    {"text": "Every weekday at 7, brief me on today's jobs", "answer": "routine"},
+    {"text": "Summarize this one PR", "answer": "once"},
+    {"text": "When CI fails on payments-api#42, ping me", "answer": "routine"},
+    {"text": "Draft a reply to Sam's comment", "answer": "once"},
+    {"text": "Ping me if a new review is requested on my open PRs this week", "answer": "routine"}
+  ]
+}
