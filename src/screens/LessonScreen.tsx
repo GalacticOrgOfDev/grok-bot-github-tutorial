@@ -41,12 +41,15 @@ export function LessonScreen({ navigation, route }: Props) {
 
   const video = bundle.videos[lessonId];
   const lesson = bundle.lessons[lessonId];
-  const practice =
-    lessonId === 'm1-practice-capstone'
-      ? bundle.practices['practice-capstone']
-      : lesson?.practiceId
-        ? bundle.practices[lesson.practiceId]
-        : null;
+  const practiceFromLesson = lesson?.practiceId
+    ? bundle.practices[lesson.practiceId]
+    : undefined;
+  const practiceStandalone =
+    meta?.type === 'practice'
+      ? Object.values(bundle.practices).find((p) => p.afterLesson === lessonId)
+      : undefined;
+  const practice = practiceFromLesson ?? practiceStandalone ?? null;
+  const isQuiz = meta?.type === 'quiz';
 
   return (
     <SafeAreaView style={styles.safe} edges={['bottom', 'left', 'right']}>
@@ -105,7 +108,7 @@ export function LessonScreen({ navigation, route }: Props) {
           </View>
         )}
 
-        {practice && lessonId !== 'm1-test' && (
+        {practice && !isQuiz && (
           <View style={styles.block}>
             <Text style={styles.heading}>{practice.title}</Text>
             <PracticePanel
@@ -120,7 +123,7 @@ export function LessonScreen({ navigation, route }: Props) {
           </View>
         )}
 
-        {lessonId === 'm1-test' && (
+        {isQuiz && (
           <QuizPanel
             quiz={bundle.quiz}
             onFinished={(correct, total, passed) => {
@@ -130,7 +133,7 @@ export function LessonScreen({ navigation, route }: Props) {
           />
         )}
 
-        {lessonId === 'm1-test' && (
+        {isQuiz && (
           <View style={{ marginTop: 12 }}>
             <PrimaryButton title="Continue" onPress={goNext} variant="ghost" />
           </View>
