@@ -1,0 +1,138 @@
+import type { PracticeDrill } from '../../types';
+import {
+  gradeCapstoneConflict,
+  gradeCapstoneDayVerdict,
+  gradeCapstoneHomeownerDraft,
+  gradeCapstoneMissingFile,
+  gradeCapstoneProposal,
+  springWeekHudsonville,
+} from '../../../shared/sandboxFixtures';
+
+const f = springWeekHudsonville;
+
+export const googlePractices: Record<string, PracticeDrill> = {
+  'practice-google-connect': {
+    id: 'practice-google-connect',
+    title: 'Drill A - Connect Calendar + Drive',
+    goal: 'Prove Calendar + Drive connectors work.',
+    afterLesson: 'm2-l1-connect',
+    passCriteria: 'Google identity + calendar name + folder/file name.',
+    failHints: ['Reconnect Calendar and/or Drive', 'Check Google account', 'Grant calendar list + Drive read scopes'],
+    passThreshold: 2,
+    usesSandbox: false,
+    steps: [
+      { id: 'a1', instruction: 'Ask which Google account you are connected as.', promptChip: 'Which Google account am I connected as for Calendar and Drive?' },
+      { id: 'a2', instruction: 'List calendars you can see.', promptChip: 'List the calendars I can see.' },
+      { id: 'a3', instruction: 'Name one Drive folder at the top of My Drive.', promptChip: 'Name one Drive folder at the top of My Drive.' },
+    ],
+    checks: [
+      { id: 'a-account', prompt: 'Did the bot return a Google identity you recognize?', kind: 'self-check', correctBoolean: true, explanation: 'Demo: ops@demo-springdyke.example' },
+      { id: 'a-calendar', prompt: 'Did you get at least one calendar name?', kind: 'self-check', correctBoolean: true, explanation: 'Primary: Crew Schedule' },
+      { id: 'a-folder', prompt: 'Did you get at least one Drive folder/file name?', kind: 'self-check', correctBoolean: true, explanation: 'Expect Jobs at top of My Drive' },
+    ],
+  },
+  'practice-week-read': {
+    id: 'practice-week-read',
+    title: 'Drill B - Read the week',
+    goal: 'Read a week and spot problems.',
+    afterLesson: 'm2-l2-calendar',
+    passCriteria: 'Day list; conflict matches fixture.',
+    failHints: ['Crew Schedule / spring-week-hudsonville', 'Wed: Mulch Van Singel vs Consult Jamestown'],
+    passThreshold: 2,
+    usesSandbox: true,
+    steps: [
+      { id: 'b1', instruction: 'Ask for Mon-Fri field list.', promptChip: f.promptChips.weekRead, hint: f.fixtureId },
+      { id: 'b2', instruction: 'Ask about conflicts under 30 minutes.' },
+      { id: 'b3', instruction: 'Ask first commitment tomorrow morning.' },
+    ],
+    checks: [
+      { id: 'b-conflict', prompt: f.drillBMc.question, kind: 'mc', options: [...f.drillBMc.choices], correctIndex: f.drillBMc.answerIndex, explanation: f.conflict.canonicalLine },
+      { id: 'b-calendar', prompt: 'Which primary calendar does the sandbox week use?', kind: 'mc', options: ['Personal', 'Crew Schedule', 'Holidays', 'Birthdays'], correctIndex: 1, explanation: 'Crew Schedule' },
+      { id: 'b-tz', prompt: 'Sandbox timezone?', kind: 'mc', options: ['America/Los_Angeles', 'UTC', 'America/Detroit', 'Europe/London'], correctIndex: 2, explanation: 'America/Detroit' },
+    ],
+  },
+  'practice-event-write': {
+    id: 'practice-event-write',
+    title: 'Drill C - Confirm-before-write',
+    goal: 'Propose then confirm a calendar change.',
+    afterLesson: 'm2-l3-write',
+    passCriteria: 'Proposal first; write-before-proposal must be No.',
+    failHints: ['Chat only until confirm', 'Mulch delivery move'],
+    passThreshold: 2,
+    usesSandbox: true,
+    steps: [
+      { id: 'c1', instruction: 'Propose moving Mulch delivery 1 hour later - no write yet.', promptChip: f.promptChips.eventWrite },
+      { id: 'c2', instruction: 'Review proposal times.' },
+      { id: 'c3', instruction: 'Then confirm update or cancel.' },
+    ],
+    checks: [
+      { id: 'c-wrote-early', prompt: 'Did you ask to write before seeing the proposal?', kind: 'boolean', correctBoolean: false, explanation: 'Must be No' },
+      { id: 'c-event', prompt: 'Which event is the Drill C reschedule target?', kind: 'mc', options: ['Mow - Maple St', 'Mulch delivery - Van Singel', 'Invoicing', 'Crew staging'], correctIndex: 1, explanation: 'Mulch delivery - Van Singel' },
+      { id: 'c-pattern', prompt: 'Safe write pattern is...', kind: 'mc', options: ['Blind auto-move', 'Propose in chat then review then confirm', 'Paste password', 'Delete calendar'], correctIndex: 1, explanation: 'Propose then confirm' },
+    ],
+  },
+  'practice-drive-job': {
+    id: 'practice-drive-job',
+    title: 'Drill D - Drive job packet',
+    goal: 'Use Drive for a job packet.',
+    afterLesson: 'm2-l4-drive',
+    passCriteria: 'Correct folder; roles; share draft only.',
+    failHints: ['Jobs / 2026 / Van Singel backyard', 'Highest sensitivity = estimate PDF'],
+    passThreshold: 2,
+    usesSandbox: true,
+    steps: [
+      { id: 'd1', instruction: 'Find Van Singel backyard folder.', promptChip: f.promptChips.driveJob },
+      { id: 'd2', instruction: 'List files: site photo vs estimate.' },
+      { id: 'd3', instruction: 'Draft share for estimate - do not change sharing yet.' },
+    ],
+    checks: [
+      { id: 'd-sensitive', prompt: 'Highest-sensitivity file in Van Singel folder?', kind: 'mc', options: ['site-before.jpg', 'layout-sketch.pdf', 'estimate-van-singel.pdf', 'README.txt'], correctIndex: 2, explanation: 'estimate-van-singel.pdf' },
+      { id: 'd-photo', prompt: 'Which file is the site photo?', kind: 'mc', options: ['estimate-van-singel.pdf', 'site-before.jpg', 'signed-contract.pdf', 'layout-sketch.pdf'], correctIndex: 1, explanation: 'site-before.jpg' },
+      { id: 'd-share', prompt: 'Did you keep share as chat draft (no permission flip)?', kind: 'self-check', correctBoolean: true, explanation: 'Draft only until confirm' },
+    ],
+  },
+  'practice-google-routine': {
+    id: 'practice-google-routine',
+    title: 'Drill E - Morning agenda routine',
+    goal: 'Morning agenda routine.',
+    afterLesson: 'm2-l5-routine',
+    passCriteria: '7:00 local; Calendar read; no auto-writes.',
+    failHints: ['Weekday 7:00 AM America/Detroit', 'No auto-writes'],
+    passThreshold: 2,
+    usesSandbox: true,
+    steps: [
+      { id: 'e1', instruction: 'Create weekday 7 AM field brief routine.', promptChip: f.promptChips.routine },
+      { id: 'e2', instruction: 'Confirm schedule, Calendar read, no auto-writes.' },
+    ],
+    checks: [
+      { id: 'e-schedule', prompt: 'Correct schedule for morning brief?', kind: 'mc', options: ['Every 30 seconds', 'Weekday 7:00 AM America/Detroit', 'Sundays midnight UTC', 'Once in 2024'], correctIndex: 1, explanation: 'Weekday 7:00 AM America/Detroit' },
+      { id: 'e-writes', prompt: 'Should the routine auto-create or edit events?', kind: 'boolean', correctBoolean: false, explanation: 'Read-only by default' },
+      { id: 'e-self', prompt: 'Did you create/simulate a routine with Calendar read + 5-line brief?', kind: 'self-check', correctBoolean: true, explanation: 'Brief: times, titles, locations' },
+    ],
+  },
+  'practice-capstone-m2': {
+    id: 'practice-capstone-m2',
+    title: 'Capstone - Thursday field day',
+    goal: 'Triage conflict + missing packet before crew rolls.',
+    afterLesson: 'm2-practice-capstone',
+    blurb: f.promptChips.capstoneBlurb,
+    passCriteria: '4/5 verifier keys.',
+    failHints: ['Van Singel + Jamestown', 'signed-contract.pdf', 'adjust or block not blind go'],
+    passThreshold: 4,
+    usesSandbox: true,
+    steps: [
+      { id: 'cap1', instruction: 'Name the Wednesday conflict.' },
+      { id: 'cap2', instruction: 'Propose a safe reschedule (chat only first).' },
+      { id: 'cap3', instruction: 'Confirm which Drive file is missing.' },
+      { id: 'cap4', instruction: 'Draft homeowner text referencing estimate only.' },
+      { id: 'cap5', instruction: 'Day verdict: go / adjust / block with reasons.' },
+    ],
+    checks: [
+      { id: 'cap-conflict', prompt: 'Name Wednesday conflict (Van Singel + Jamestown).', kind: 'text', grade: gradeCapstoneConflict, explanation: f.conflict.canonicalLine },
+      { id: 'cap-proposal', prompt: 'Propose reschedule with new time and chat-only / not updated yet.', kind: 'text', grade: gradeCapstoneProposal, explanation: 'New time + chat-only' },
+      { id: 'cap-missing', prompt: 'Which expected packet file is missing?', kind: 'text', grade: gradeCapstoneMissingFile, explanation: 'signed-contract.pdf' },
+      { id: 'cap-draft', prompt: 'Homeowner text naming estimate (no other phones).', kind: 'text', grade: gradeCapstoneHomeownerDraft, explanation: f.shareDraftShape },
+      { id: 'cap-verdict', prompt: 'Day verdict? (adjust or block + conflict/contract)', kind: 'text', grade: gradeCapstoneDayVerdict, explanation: 'adjust/block not blind go' },
+    ],
+  },
+};
