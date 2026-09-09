@@ -1,0 +1,231 @@
+import type { VideoLesson } from '../../types';
+
+export const googleVideos: Record<string, VideoLesson> = {
+  'm2-intro': {
+    id: 'm2-intro',
+    title: 'Why Grok Bot + Google on the go',
+    type: 'video',
+    depths: ['skim', 'solid', 'deep'],
+    estMinutes: 1,
+    cta: 'Connect Calendar and Drive.',
+    slides: [
+      {
+        id: 'v0-1',
+        title: 'Jobs & packets',
+        narration:
+          'Jobs live on your calendar. Packets live in Drive. Your phone is already in the truck.',
+        durationSec: 15,
+        bullets: ['Calendar = jobs', 'Drive = packets', 'Phone already with you'],
+      },
+      {
+        id: 'v0-2',
+        title: 'What you’ll do',
+        narration:
+          'Ask Grok Bot for the day, fix conflicts safely, and pull the right folder — without tab thrash.',
+        durationSec: 18,
+        bullets: ['Day in chat', 'Safe conflict fixes', 'Right job folder'],
+      },
+      {
+        id: 'v0-3',
+        title: 'Module 2 of Grok Bot + *',
+        narration:
+          'Module 2 of Grok Bot plus star. GitHub done; Google now; Slack stub later for others.',
+        durationSec: 15,
+        bullets: ['GitHub ✓', 'Google now', 'Slack stub for others'],
+      },
+      {
+        id: 'v0-4',
+        title: 'CTA',
+        narration: 'Next: connect Calendar and Drive.',
+        durationSec: 12,
+        bullets: ['CTA: Connect Calendar and Drive'],
+      },
+    ],
+  },
+  'm2-v2': {
+    id: 'm2-v2',
+    title: 'Day-to-day: your week in chat',
+    type: 'video',
+    depths: ['skim', 'solid', 'deep'],
+    estMinutes: 2,
+    cta: 'Practice reading the week.',
+    slides: [
+      {
+        id: 'v2-1',
+        title: 'What’s this week?',
+        narration: 'Start simple: what’s this week look like?',
+        durationSec: 15,
+        bullets: ['Ask for the week from chat'],
+      },
+      {
+        id: 'v2-2',
+        title: 'Field-friendly list',
+        narration: 'Get a field-friendly list: day, title, time, location.',
+        durationSec: 20,
+        bullets: ['Day', 'Title', 'Time', 'Location'],
+      },
+      {
+        id: 'v2-3',
+        title: 'Conflict flagged',
+        narration:
+          'Conflict flagged — like a 15-minute gap or an overlap you can’t travel.',
+        durationSec: 20,
+        bullets: ['Flag <30m gaps', 'Flag overlaps'],
+      },
+      {
+        id: 'v2-4',
+        title: 'Name the calendar',
+        narration: 'Tip — name the calendar if you have several.',
+        durationSec: 20,
+        bullets: ['Tip: name Crew Schedule'],
+      },
+    ],
+  },
+  'm2-v3': {
+    id: 'm2-v3',
+    title: 'Change the calendar (safely)',
+    type: 'video',
+    depths: ['skim', 'solid', 'deep'],
+    estMinutes: 1,
+    cta: 'Practice the propose → confirm loop.',
+    slides: [
+      {
+        id: 'v3-1',
+        title: 'Bad',
+        narration: 'Bad — just move everything.',
+        durationSec: 12,
+        bullets: ['Avoid blind writes'],
+      },
+      {
+        id: 'v3-2',
+        title: 'Good',
+        narration: 'Good — propose times in chat first.',
+        durationSec: 18,
+        bullets: ['Proposal in chat only'],
+      },
+      {
+        id: 'v3-3',
+        title: 'Explicit yes',
+        narration: 'Then an explicit yes, update.',
+        durationSec: 15,
+        bullets: ['Yes, update the calendar'],
+      },
+      {
+        id: 'v3-4',
+        title: 'Undo mindset',
+        narration: 'Easy undo mindset — confirmations matter on mobile.',
+        durationSec: 15,
+        bullets: ['Confirm before every write'],
+      },
+    ],
+  },
+  'm2-v4': {
+    id: 'm2-v4',
+    title: 'Job folders in Drive',
+    type: 'video',
+    depths: ['skim', 'solid', 'deep'],
+    estMinutes: 2,
+    cta: 'Find the folder in practice.',
+    slides: [
+      {
+        id: 'v4-1',
+        title: 'Where’s the packet?',
+        narration: 'Where’s the Van Singel packet?',
+        durationSec: 15,
+        bullets: ['Jobs / 2026 / Van Singel backyard'],
+      },
+      {
+        id: 'v4-2',
+        title: 'Photos vs estimate',
+        narration: 'Photos vs estimate PDF — know which is sensitive.',
+        durationSec: 20,
+        bullets: ['site-before.jpg', 'estimate-van-singel.pdf'],
+      },
+      {
+        id: 'v4-3',
+        title: 'Draft share',
+        narration: 'Draft share — don’t flip permissions yet.',
+        durationSec: 20,
+        bullets: ['Chat draft only', 'Confirm before sharing'],
+      },
+      {
+        id: 'v4-4',
+        title: 'Don’t leak',
+        narration: 'Don’t paste other clients’ data into a message.',
+        durationSec: 20,
+        bullets: ['No other phones/names'],
+      },
+    ],
+  },
+  'm2-v5': {
+    id: 'm2-v5',
+    title: 'Morning agenda / job-packet routine',
+    type: 'video',
+    depths: ['skim', 'solid', 'deep'],
+    estMinutes: 2,
+    cta: 'Build yours next.',
+    slides: [
+      {
+        id: 'v5-1',
+        title: 'The pain',
+        narration: 'Pain — leaving the yard without knowing stop number one.',
+        durationSec: 18,
+        bullets: ['Unknown stop #1'],
+      },
+      {
+        id: 'v5-2',
+        title: '7 AM brief',
+        narration: 'Seven AM brief: times, titles, locations.',
+        durationSec: 22,
+        bullets: ['7:00 America/Detroit', 'Time + title + location'],
+      },
+      {
+        id: 'v5-3',
+        title: 'Drive folder check',
+        narration: 'Optional Drive folder check for today’s main job.',
+        durationSec: 25,
+        bullets: ['Mention job folder if found'],
+      },
+      {
+        id: 'v5-4',
+        title: 'Read-only',
+        narration: 'Read-only by default — no auto event writes.',
+        durationSec: 25,
+        bullets: ['Don’t create or edit events'],
+      },
+    ],
+  },
+  'm2-outro': {
+    id: 'm2-outro',
+    title: "What's next (+ Slack stub for others)",
+    type: 'video',
+    depths: ['skim', 'solid', 'deep'],
+    estMinutes: 1,
+    cta: 'Pass the quiz; ship the day.',
+    slides: [
+      {
+        id: 'vo-1',
+        title: 'Recap',
+        narration:
+          'Recap: connect, read week, confirm writes, Drive carefully, routine.',
+        durationSec: 15,
+        bullets: ['Connect → Read → Write safely → Drive → Routine'],
+      },
+      {
+        id: 'vo-2',
+        title: 'Slack stub',
+        narration:
+          'Thin Slack module later for specialists who live in Slack — not required for everyone.',
+        durationSec: 15,
+        bullets: ['Slack = stub for others', 'Not required for Calendar/Drive'],
+      },
+      {
+        id: 'vo-3',
+        title: 'Your move',
+        narration: 'Pass the quiz; ship the day.',
+        durationSec: 15,
+        bullets: ['80% to pass', 'Ship the day'],
+      },
+    ],
+  },
+};
