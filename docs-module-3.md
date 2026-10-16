@@ -1,24 +1,42 @@
 # Module 3: Grok Bot + Slack
 
-Live Solid module under src/modules/slack (`moduleId: slack`). Path slot: after Google, before Routines.
+**Status:** live · Solid · passScore 0.8  
+**Path:** `src/modules/slack` · `moduleId: slack`  
+**Position:** after Google, before Routines.
 
-## Lesson IDs
+## Learning outcomes
 
-m3-intro, m3-l1-connect, m3-v2, m3-l2-read, m3-v3, m3-l3-write, m3-v4, m3-l4-routine, m3-practice-capstone, m3-test, m3-outro
+- Connect the Slack connector and confirm the workspace and channel Grok Bot is acting in.
+- Read recent messages and identify an open ask without posting.
+- Draft a reply and confirm before sending.
+- Create a lightweight routine that watches for keywords and surfaces a digest.
+- Know the safety boundaries: never auto-post @channel, pricing, client PII, or credentials.
 
-## Flow
+## Lesson order
 
-connect → read → safe write → Slack routines → practice → test → outro (Module 4 Routines)
+`m3-intro` → `m3-l1-connect` → `m3-v2` → `m3-l2-read` → `m3-v3` → `m3-l3-write` → `m3-v4` → `m3-l4-routine` → `m3-practice-capstone` → `m3-test` → `m3-outro`
+
+Flow: connect → read → safe write → Slack routines → practice → quiz → Module 4 (Routines).
 
 ## Fixture
 
-slack-crew-ops (src/shared/sandboxFixtures/slackCrewOps.ts + slack-crew-ops.json)
-- workspace Springdyke Demo, channel #crew-ops (C-CREW-OPS)
-- openAsk: trailer hitch confirmation
-- draftReplyShape: Van Singel Thursday 8am crew of 3 + hitch confirmed
-- routineTarget: Crew-ops weather/cancel (keywords weather|cancel)
-- safetyNeverAuto: @channel, pricing, client PII, passwords
+`slack-crew-ops` (`src/shared/sandboxFixtures/slackCrewOps.ts` + `slack-crew-ops.json`)
+
+- Workspace: Springdyke Demo
+- Channel: `#crew-ops` (`C-CREW-OPS`)
+- Open ask: trailer hitch confirmation
+- Draft reply shape: Van Singel Thursday 8am, crew of 3, hitch confirmed
+- Routine target: weather|cancel keywords
+- Safety never-auto: `@channel`, pricing, client PII, passwords
 
 ## Practices
 
-A practice-slack-connect, B practice-slack-read (open ask = hitch), C practice-slack-write (draft-before-post), D practice-slack-routine (weather|cancel), + practice-capstone-slack (4/5). Quiz 10Q pass ≥8.
+| ID | Focus |
+|----|-------|
+| practice-slack-connect | Verify connector and channel |
+| practice-slack-read | Surface the open hitch ask |
+| practice-slack-write | Draft-before-post |
+| practice-slack-routine | weather\|cancel watcher |
+| practice-capstone-slack | Combined drill (4/5 checks) |
+
+Quiz: 10 questions, pass ≥ 8.
