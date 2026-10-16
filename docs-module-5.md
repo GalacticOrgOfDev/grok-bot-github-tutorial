@@ -1,27 +1,44 @@
 # Module 5: Grok Bot + Bot Teams
 
-Live unlockable module under src/modules/teams (`moduleId: teams`).
+**Status:** live · Solid · passScore 0.8  
+**Path:** `src/modules/teams` · `moduleId: teams`
 
-## Lesson IDs
+## Learning outcomes
 
-m5-intro, m5-l1-roles, m5-v2, m5-l2-dm, m5-v3, m5-l3-channel, m5-v4, m5-l4-coord, m5-practice-capstone, m5-test, m5-outro
+- Explain why specialized bots beat one mega-chat for real work.
+- Define clear roles (name + description) for 2–3 teammates.
+- Message one teammate with a crisp ask; know replies are async.
+- Create a channel for a project and seat only the bots that belong.
+- Use Chief-of-Staff coordination: one owner assigns, specialists deliver, human confirms.
+- Avoid private vents, unscoped fan-out, and “wake everyone meanwhile.”
 
-## Flow
+## Lesson order
 
-roles → DM → channel → CoS / no-spam → capstone → quiz → outro
+`m5-intro` → `m5-l1-roles` → `m5-v2` → `m5-l2-dm` → `m5-v3` → `m5-l3-channel` → `m5-v4` → `m5-l4-coord` → `m5-practice-capstone` → `m5-test` → `m5-outro`
+
+Flow: roles → DM → channel → CoS / no-spam → capstone → quiz.
 
 ## Fixture
 
-bot-team-van-singel (src/shared/sandboxFixtures/botTeamVanSingel.ts + bot-team-van-singel.json)
-- bots: Chief of Staff, Crew Scheduler, Job Packets, Estimator
-- channel: Van Singel Install (scheduler, packets, estimator)
-- spamCards: 4 OK/Don't tags
-- reuses M2 week + missing signed-contract.pdf
+`bot-team-van-singel` (`src/shared/sandboxFixtures/botTeamVanSingel.ts` + `bot-team-van-singel.json`)
+
+- Bots: Chief of Staff, Crew Scheduler, Job Packets, Estimator
+- Channel: Van Singel Install (scheduler, packets, estimator)
+- Spam cards: 4 OK/Don’t tags
+- Reuses Module 2 week data + missing `signed-contract.pdf`
 
 ## Practices
 
-A roles, B dm, C channel, D no-spam (≥3/4), + capstone (4/5 keys). Quiz 10Q pass ≥8.
+| ID | Focus |
+|----|-------|
+| practice-teams-roles | Name and describe the specialists |
+| practice-teams-dm | One crisp ask to one bot |
+| practice-teams-channel | Seat the right bots, no extras |
+| practice-teams-no-spam | Reject fan-out and private vents (≥3/4) |
+| practice-capstone-teams | Combined drill (4/5 keys) |
 
-## Channel note
+Quiz: 10 questions, pass ≥ 8.
 
-Teach “channel” as Grok Bot group chat in this module (distinct from the live Slack connector module).
+## Note
+
+“Channel” in this module means a Grok Bot group chat. It is distinct from the Slack connector taught in Module 3.
